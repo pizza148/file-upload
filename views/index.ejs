@@ -1,89 +1,49 @@
-<!-- Card deck -->
-<div class="card-deck">
-
-    <!-- Card -->
-    <div class="card mb-4">
-  
-      <!--Card image-->
-      <div class="view overlay">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/16.webp"
-          alt="Card image cap">
-        <a href="#!">
-          <div class="mask rgba-white-slight"></div>
-        </a>
-      </div>
-  
-      <!--Card content-->
-      <div class="card-body">
-  
-        <!--Title-->
-        <h4 class="card-title">Card title</h4>
-        <!--Text-->
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-  
-      </div>
-  
-    </div>
-    <!-- Card -->
-  
-    <!-- Card -->
-    <div class="card mb-4">
-  
-      <!--Card image-->
-      <div class="view overlay">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/14.webp"
-          alt="Card image cap">
-        <a href="#!">
-          <div class="mask rgba-white-slight"></div>
-        </a>
-      </div>
-  
-      <!--Card content-->
-      <div class="card-body">
-  
-        <!--Title-->
-        <h4 class="card-title">Card title</h4>
-        <!--Text-->
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-  
-      </div>
-  
-    </div>
-    <!-- Card -->
-  
-    <!-- Card -->
-    <div class="card mb-4">
-  
-      <!--Card image-->
-      <div class="view overlay">
-        <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/15.webp"
-          alt="Card image cap">
-        <a href="#!">
-          <div class="mask rgba-white-slight"></div>
-        </a>
-      </div>
-  
-      <!--Card content-->
-      <div class="card-body">
-  
-        <!--Title-->
-        <h4 class="card-title">Card title</h4>
-        <!--Text-->
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-        <button type="button" class="btn btn-light-blue btn-md">Read more</button>
-  
-      </div>
-  
-    </div>
-    <!-- Card -->
-  
+<div class="container p-2">
+  <div class="admin-title py-2">
+    <h2>Add Post</h2>
   </div>
-  <!-- Card deck -->
+  <form action="/" method="post" enctype="multipart/form-data">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="title" class="mb-2"><b class="fs-5">Title</b></label>
+        <input class="form-control mb-3" type="text" placeholder="Post Title" name="title">
+
+        <label for="caption" class="mb-2"><b class="fs-5">Caption</b></label>
+        <input class="form-control mb-3" type="caption" placeholder="Post Caption" name="caption">
+
+        <label for="sampleFile" class="mb-2"><b class="fs-5">Upload Image</b></label>
+        <input class="form-control form-control-sm" type="file" name="sampleFile">
+
+      </div>
+      <div class="col-md-6 ">
+        <label for="content" class="mb-2"><b class="fs-5">Content</b></label>
+        <textarea class="form-control mb-3" name="content" id="" cols="50" rows="10" style="height: 143px;"></textarea>
+        <div class="d-grid">
+          <input class="btn btn-warning   mt-3 fload-right" type="submit">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container p-2 mt-3">
+  <div class="row row-cols-1 row-cols-md-3 mt-4">
+    <% posts.forEach(post => { %>
+      <div class="col mb-4">
+        <div class="card" style=" min-height: 400px;">
+          <div class="view overlay">
+            <img class="card-img-top" src="<%= post.img %>" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title"><%= post.title %></h4>
+            <p class="card-text"><%= post.caption %></p>
+            <button type="button" class="btn btn-primary btn-md">Read more</button>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+    
+  </div>
+</div>
